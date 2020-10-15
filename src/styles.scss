@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@include mat-core();
+
+$Prueba-frontend-primary: mat-palette($mat-blue-grey, 800, 400, 900);
+$Prueba-frontend-accent: mat-palette($mat-light-blue, A400, A100, A800);
+
+$Prueba-frontend-warn: mat-palette($mat-red);
+
+$Prueba-frontend-theme: mat-light-theme($Prueba-frontend-primary, $Prueba-frontend-accent, $Prueba-frontend-warn);
+
+@include angular-material-theme($Prueba-frontend-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$gradient: linear-gradient(to left, mat-color($Prueba-frontend-accent, A400), mat-color($Prueba-frontend-primary, 400));
+$grey: #fafafa;
+
+mat-sidenav-content {
+  padding: 0 !important;
+}

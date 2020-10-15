@@ -1,0 +1,94 @@
+@import '../../styles.scss';
+
+table {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  mat-paginator {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  :host {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: $gradient;
+  }
+
+  .sign-in-card {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+
+
+  .example-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: -100%;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button {
+    margin: 16px 8px;
+  }
+
+  mat-form-field{
+    padding: 15px;
+    background-color: rgb(241, 241, 241);
+  }
+
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+
+.filtros{
+  margin-top: 20px;
+  background-color: rgb(241, 241, 241);
+  width: 100%;
+}
+
+  mat-chip-list {
+    margin: 20px 8px;
+  }
+
+  .botoncitos {
+    display: flex;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .chips{
+    display: none;
+  }
+
+  .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .texto{
+      color: white;
+      margin-top: 30px;
+      font-size: 3rem;
+  }
+
+  .texto2{
+    color: white;
+    margin-top: 30px;
+    font-size: 1rem;
+}
