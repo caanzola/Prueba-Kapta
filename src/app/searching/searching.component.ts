@@ -215,13 +215,14 @@ export class SearchingComponent implements OnInit {
     let name = row.name;
     
     this.httpClient.Get(row.link).subscribe(res => {
-      console.log(res);
+      
       const dialogRef = this.dialog.open(ModalCardComponent, {
         data: {
           name: name,
           peso: res.weight,
           altura: res.height,
-          habilidades: res.abilities
+          habilidades: res.abilities,
+          image: res.sprites.front_default
         },
         width: '70%',
         height: '80%',

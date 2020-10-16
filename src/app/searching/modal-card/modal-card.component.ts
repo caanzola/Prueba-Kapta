@@ -28,6 +28,7 @@ export class ModalCardComponent implements OnInit {
   peso;
   altura;
   habilidades;
+  image;
   displayedColumns: string[] = ['Name', 'Link', 'pokemons'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   selectedValue: string;
@@ -38,6 +39,7 @@ export class ModalCardComponent implements OnInit {
     this.peso = data.peso;
     this.altura = data.altura;
     this.habilidades = data.habilidades;
+    this.image = data.image;
     console.log(this.habilidades);
     this.habilidades.forEach(value => {
       let element = new Element();
@@ -53,6 +55,7 @@ export class ModalCardComponent implements OnInit {
           this.pokemones.push(pok);
         });
       });
+      
       ELEMENT_DATA.push(element);
       this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     });
