@@ -20,7 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-import { ModalTransactionComponent } from './searching/modal-transaction/modal-transaction.component';
+import { ModalCardComponent } from './searching/modal-card/modal-card.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
@@ -29,7 +29,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AppComponent,
     ErrorModalComponent,
     SearchingComponent,
-    ModalTransactionComponent
+    ModalCardComponent
   ],
   imports: [
     BrowserModule,

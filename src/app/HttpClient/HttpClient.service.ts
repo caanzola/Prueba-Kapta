@@ -21,15 +21,6 @@ export class HttpClientService {
         'Content-Type': 'application/json'
       })
     }
-
-
-    // POST
-  Login(data): Observable<any> {
-    return this.http.post<any>(this.baseurl + 'api/user/login/', JSON.stringify(data), this.httpOptions)
-    .pipe(
-      retry(1)
-    )
-  }
   
    // GET
    GetPokemons(): Observable<any> {

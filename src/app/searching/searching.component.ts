@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ErrorModalComponent } from '../errors/ErrorModal/error-modal.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { ModalTransactionComponent } from './modal-transaction/modal-transaction.component';
+import { ModalCardComponent } from './modal-card/modal-card.component';
 import { PageEvent } from '@angular/material/paginator';
 
 
@@ -57,13 +57,11 @@ export class SearchingComponent implements OnInit {
       
 
       this.httpClient.GetAllPokemons().subscribe(res => {
-        console.log(res);
         res.results.forEach((value, index) => {
           let element = new Element();
           element.name = value.name;
           element.link = value.url;
           allPokemons.push(element);
-          console.log(allPokemons);
         });
       },
       err => {
@@ -182,7 +180,7 @@ export class SearchingComponent implements OnInit {
       this.isLoadingResults = true;
         this.currentIndex = event.pageIndex;
         ELEMENT_DATA = [];
-        console.log(this.prvPage);
+        
         this.httpClient.Get(this.prvPage).subscribe(res => {
           this.nxtPage = res.next;
           this.prvPage = res.previous;
@@ -213,20 +211,37 @@ export class SearchingComponent implements OnInit {
   }
 
   rowOnClick(row){
-    console.log("click");
-    console.log(row);
 
-    let date = new Date (row.date);
-    let dateString = date.toLocaleDateString();
-    const dialogRef = this.dialog.open(ModalTransactionComponent, {
-      data: {
-        type: row.type,
-        points: row.points,
-        date: dateString,
-        value: row.value
-      },
-      width: '50%',
-      height: '60%',
-    }); 
+    let name = row.name;
+    
+    this.httpClient.Get(row.link).subscribe(res => {
+      console.log(res);
+      const dialogRef = this.dialog.open(ModalCardComponent, {
+        data: {
+          name: name,
+          peso: res.weight,
+          altura: res.height,
+          habilidades: res.abilities
+        },
+        width: '70%',
+        height: '80%',
+      }); 
+    },
+    err => {
+      const dialogRef = this.dialog.open(ErrorModalComponent, {
+           width: '80%',
+           height: '30%', 
+           data: {
+            message: "Error in token"
+           }
+        }
+      );
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.router.navigate([``]);
+      });
+    });
+
+    
   }
 }

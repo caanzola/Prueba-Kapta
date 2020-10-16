@@ -1,0 +1,85 @@
+
+<div class="content">
+    <h1 class="texto">
+        Tarjeta
+    </h1>
+</div>
+<div class="content2">
+    <mat-card class="sign-in-card">
+        <mat-label>Nombre: </mat-label>
+        <p class="lbl">
+            {{name}}
+        </p>
+        
+    </mat-card>
+
+    <mat-card class="sign-in-card">
+        <mat-label>Peso: </mat-label>
+        <p class="lbl">
+            {{peso}}
+        </p>
+        
+    </mat-card>
+    
+    <mat-card class="sign-in-card">
+        <mat-label>Altura: </mat-label>
+        <p class="lbl">
+            {{altura}}
+        </p>
+        
+    </mat-card>
+</div>
+
+
+<div class="content">
+   
+        Habilidades
+   
+</div>
+
+<div class="button">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+        <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Link">
+            <th mat-header-cell *matHeaderCellDef> Link </th>
+            <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="pokemons">
+            <th mat-header-cell *matHeaderCellDef> Pokemones relacionados </th>
+            <td mat-cell *matCellDef="let element"> 
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select [(value)]="selectedValue" name="pokemon" (selectionChange)="select($event)">
+                        <mat-option *ngFor="let pokemon of pokemones" [value]="pokemon.name">
+                          {{pokemon.name}}
+                        </mat-option>
+                      </mat-select>
+                  </mat-form-field>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row class="example-element-row" *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
+    <div class="button">
+        <div class="flexItemFull">
+    
+            <button mat-button [mat-dialog-close]>
+                Close
+            </button> 
+          
+        </div>
+    </div>
+
+
+    
+
+
+
