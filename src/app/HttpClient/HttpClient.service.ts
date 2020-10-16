@@ -11,6 +11,7 @@ export class HttpClientService {
 
     // Base url
     baseurl = 'https://pokeapi.co/api/v2/';
+    baseurl2 = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1050";
   
     constructor(private http: HttpClient) { }
 
@@ -39,6 +40,15 @@ export class HttpClientService {
     )
   }
 
+  // GET
+  GetAllPokemons(): Observable<any> {
+    return this.http.get<any>(this.baseurl2 + 'pokemon/', this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    )
+  }
+
   Get(url): Observable<any> {
     return this.http.get<any>(url, this.httpOptions)
     .pipe(
@@ -46,6 +56,8 @@ export class HttpClientService {
       catchError(this.errorHandl)
     )
   }
+
+
 
    errorHandl(error) {
     let errorMessage = '';
