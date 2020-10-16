@@ -6,6 +6,11 @@ Este es un proyecto desarrollado como prueba para la empresa Kapta que se desarr
 
 Se presentan a continuación algunos pantallazos que muestran la parte gráfica de la aplicación:
 
+![image info](./pictures/1.png)
+![image info](./pictures/2.png)
+![image info](./pictures/3.png)
+![image info](./pictures/4.png)
+
 # Instrucciones
 
 Para poder correr este proyecto en un navegador local es necesario seguir los siguientes pasos:
